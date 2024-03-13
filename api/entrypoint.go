@@ -139,7 +139,7 @@ func getName(c *gin.Context) {
 	// Call the loginHandler to perform the login process
 	username := c.Query("user")
 	password := c.Query("pass")
-	link := c.DefaultQuery("link", "https://homeaccess.katyisd.org")
+	link := c.DefaultQuery("link", "https://home-access.cfisd.net")
 	collector, err := loginHandler(username, password, link)
 	if err != nil {
 		// Handle the login error
@@ -159,7 +159,7 @@ func getName(c *gin.Context) {
 	})
 
 	// Perform the scraping operation
-	err = collector.Visit("https://homeaccess.katyisd.org/HomeAccess/Classes/Classwork")
+	err = collector.Visit("https://home-access.cfisd.net/HomeAccess/Classes/Classwork")
 	if err != nil {
 		// Handle the scraping error
 		c.JSON(500, gin.H{"error": "Failed to scrape data"})
@@ -170,7 +170,7 @@ func getName(c *gin.Context) {
 func getAssignments(c *gin.Context) {
 	username := c.Query("user")
 	password := c.Query("pass")
-	link := c.DefaultQuery("link", "https://homeaccess.katyisd.org")
+	link := c.DefaultQuery("link", "https://home-access.cfisd.net")
 	collector, err := loginHandler(username, password, link)
 	if err != nil {
 		// Handle the login error
@@ -245,7 +245,7 @@ func getAssignments(c *gin.Context) {
 		c.JSON(200, ret)
 	})
 
-	err = collector.Visit("https://homeaccess.katyisd.org/HomeAccess/Content/Student/Assignments.aspx")
+	err = collector.Visit("https://home-access.cfisd.net/HomeAccess/Content/Student/Assignments.aspx")
 	if err != nil {
 		c.JSON(500, gin.H{"error": "Failed to scrape data"})
 		return
@@ -255,7 +255,7 @@ func getAssignments(c *gin.Context) {
 func getInfo(c *gin.Context) {
 	username := c.Query("user")
 	password := c.Query("pass")
-	link := c.DefaultQuery("link", "https://homeaccess.katyisd.org")
+	link := c.DefaultQuery("link", "https://home-access.cfisd.net")
 	collector, err := loginHandler(username, password, link)
 	if err != nil {
 		// Handle the login error
@@ -293,7 +293,7 @@ func getInfo(c *gin.Context) {
 		c.JSON(200, ret)
 	})
 
-	err = collector.Visit("https://homeaccess.katyisd.org/HomeAccess/Content/Student/Registration.aspx")
+	err = collector.Visit("https://home-access.cfisd.net/HomeAccess/Content/Student/Registration.aspx")
 	if err != nil {
 		c.JSON(500, gin.H{"error": "Failed to scrape data"})
 		return
@@ -303,7 +303,7 @@ func getInfo(c *gin.Context) {
 func getAverages(c *gin.Context) {
 	username := c.Query("user")
 	password := c.Query("pass")
-	link := c.DefaultQuery("link", "https://homeaccess.katyisd.org")
+	link := c.DefaultQuery("link", "https://home-access.cfisd.net")
 	collector, err := loginHandler(username, password, link)
 	if err != nil {
 		// Handle the login error
@@ -336,7 +336,7 @@ func getAverages(c *gin.Context) {
 		c.JSON(200, ret)
 	})
 
-	err = collector.Visit("https://homeaccess.katyisd.org/HomeAccess/Content/Student/Assignments.aspx")
+	err = collector.Visit("https://home-access.cfisd.net/HomeAccess/Content/Student/Assignments.aspx")
 	if err != nil {
 		c.JSON(500, gin.H{"error": "Failed to scrape data"})
 		return
@@ -346,7 +346,7 @@ func getAverages(c *gin.Context) {
 func getClasses(c *gin.Context) {
 	username := c.Query("user")
 	password := c.Query("pass")
-	link := c.DefaultQuery("link", "https://homeaccess.katyisd.org")
+	link := c.DefaultQuery("link", "https://home-access.cfisd.net")
 	collector, err := loginHandler(username, password, link)
 	if err != nil {
 		// Handle the login error
@@ -370,7 +370,7 @@ func getClasses(c *gin.Context) {
 		c.JSON(200, classes)
 	})
 
-	err = collector.Visit("https://homeaccess.katyisd.org/HomeAccess/Content/Student/Assignments.aspx")
+	err = collector.Visit("https://home-access.cfisd.net/HomeAccess/Content/Student/Assignments.aspx")
 	if err != nil {
 		c.JSON(500, gin.H{"error": "Failed to scrape data"})
 		return
@@ -380,7 +380,7 @@ func getClasses(c *gin.Context) {
 func getReport(c *gin.Context) {
 	username := c.Query("user")
 	password := c.Query("pass")
-	link := c.DefaultQuery("link", "https://homeaccess.katyisd.org")
+	link := c.DefaultQuery("link", "https://home-access.cfisd.net")
 	collector, err := loginHandler(username, password, link)
 	if err != nil {
 		// Handle the login error
@@ -421,7 +421,7 @@ func getReport(c *gin.Context) {
 		c.JSON(200, finalData)
 	})
 
-	err = collector.Visit("https://homeaccess.katyisd.org/HomeAccess/Content/Student/ReportCards.aspx")
+	err = collector.Visit("https://home-access.cfisd.net/HomeAccess/Content/Student/ReportCards.aspx")
 	if err != nil {
 		c.JSON(500, gin.H{"error": "Failed to scrape data"})
 		return
@@ -431,7 +431,7 @@ func getReport(c *gin.Context) {
 func getProgressReport(c *gin.Context) {
 	username := c.Query("user")
 	password := c.Query("pass")
-	link := c.DefaultQuery("link", "https://homeaccess.katyisd.org")
+	link := c.DefaultQuery("link", "https://home-access.cfisd.net")
 	collector, err := loginHandler(username, password, link)
 	if err != nil {
 		// Handle the login error
@@ -457,7 +457,7 @@ func getProgressReport(c *gin.Context) {
 		row = nil
 	})
 
-	err = collector.Visit("https://homeaccess.katyisd.org/HomeAccess/Content/Student/InterimProgress.aspx")
+	err = collector.Visit("https://home-access.cfisd.net/HomeAccess/Content/Student/InterimProgress.aspx")
 	if err != nil {
 		c.JSON(500, gin.H{"error": "Failed to scrape data"})
 		return
@@ -480,7 +480,7 @@ func getProgressReport(c *gin.Context) {
 func getTranscript(c *gin.Context){
 	username := c.Query("user")
 	password := c.Query("pass")
-	link := c.DefaultQuery("link", "https://homeaccess.katyisd.org")
+	link := c.DefaultQuery("link", "https://home-access.cfisd.net")
 	collector, err := loginHandler(username, password, link)
 	if err != nil {
 		// Handle the login error
@@ -579,7 +579,7 @@ func getTranscript(c *gin.Context){
 func getRank(c *gin.Context){
 	username := c.Query("user")
 	password := c.Query("pass")
-	link := c.DefaultQuery("link", "https://homeaccess.katyisd.org")
+	link := c.DefaultQuery("link", "https://home-access.cfisd.net")
 	collector, err := loginHandler(username, password, link)
 	if err != nil {
 		// Handle the login error
